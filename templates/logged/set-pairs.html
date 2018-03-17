@@ -1,0 +1,49 @@
+﻿<ion-view view-title="Memory">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-refresh" ng-click="randomize()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+        <span class="ion-grid light"> Pary</span>
+    </ion-nav-title>
+    <ion-header-bar class="bar bar-subheader light positive-bg center" style="padding: 0">
+        <p class="padding">{{set.title}}</p>
+    </ion-header-bar>
+    <ion-content overflow-scroll="false" has-bouncing="false">
+        <div class="row memory-row" ng-repeat="item in wordsToPair" ng-if="$index % 3 == 0">
+            <div class="col middle card low-margin" ng-class="{'card-selected': wordsToPair[$index].isSelected, 'card-matched': wordsToPair[$index].isMatched, 'card-wronglyMatched': wordsToPair[$index].isWronglyMatched}" ng-click="selectWord(wordsToPair[$index])">
+                <div class="memory-text">
+                    <p>{{wordsToPair[$index].word}}</p>
+                </div>
+            </div>
+            <div class="col middle card low-margin" ng-if="wordsToPair.length > ($index + 1)" ng-class="{'card-selected': wordsToPair[$index+1].isSelected, 'card-matched': wordsToPair[$index+1].isMatched, 'card-wronglyMatched': wordsToPair[$index+1].isWronglyMatched}" ng-click="selectWord(wordsToPair[$index+1])">
+                <div class="memory-text"><p>{{wordsToPair[$index+1].word}}</p></div>
+            </div>
+            <div class="col middle card low-margin" ng-if="wordsToPair.length > ($index + 2)" ng-class="{'card-selected': wordsToPair[$index+2].isSelected, 'card-matched': wordsToPair[$index+2].isMatched, 'card-wronglyMatched': wordsToPair[$index+2].isWronglyMatched}" ng-click="selectWord(wordsToPair[$index+2])">
+                <div class="memory-text">
+                    <p>{{wordsToPair[$index+2].word}}</p>
+                </div>
+            </div>
+        </div>
+        <hr ng-if="timeRounded >= 0" style="margin-top:2vh; margin-bottom:2vh;" />
+        <div class="row memory-row" ng-repeat="item in translations" ng-if="$index % 3 == 0">
+            <div class="col middle card low-margin" ng-class="{'card-selected': translations[$index].isSelected, 'card-matched': translations[$index].isMatched, 'card-wronglyMatched': translations[$index].isWronglyMatched}" ng-click="selectTranslation(translations[$index])">
+                <div class="memory-text">
+                    <p>{{translations[$index].word}}</p>
+                </div>
+            </div>
+            <div class="col middle card low-margin" ng-if="translations.length > ($index + 1)" ng-class="{'card-selected': translations[$index+1].isSelected, 'card-matched': translations[$index+1].isMatched, 'card-wronglyMatched': translations[$index+1].isWronglyMatched}" ng-click="selectTranslation(translations[$index+1])">
+                <div class="memory-text">
+                    <p>{{translations[$index+1].word}}</p>
+                </div>
+            </div>
+            <div class="col middle card low-margin" ng-if="translations.length > ($index + 2)" ng-class="{'card-selected': translations[$index+2].isSelected, 'card-matched': translations[$index+2].isMatched, 'card-wronglyMatched': translations[$index+2].isWronglyMatched}" ng-click="selectTranslation(translations[$index+2])">
+                <div class="memory-text">
+                    <p>{{translations[$index+2].word}}</p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar align-title="center" class="bar-positive">
+        <h1 class="title monospace"><i ng-if="timeRounded >= 0">{{timeRounded}} s </i><i ng-if="best>0">({{best}} s)</i></h1>
+    </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,45 @@
+﻿<ion-view>
+    <ion-nav-title>
+        <span class="ion-ios-browsers light"> Fiszki</span>
+    </ion-nav-title>
+    <ion-header-bar class="bar bar-subheader light positive-bg center" style="padding: 0">
+        <p class="padding">{{set.title}}</p>
+    </ion-header-bar>
+    <ion-content scroll="false" overflow-scroll="false" has-bouncing="false">
+        <ion-slide-box delegate-handle="slider" on-slide-changed="slideHasChanged($index);" show-pager="false" style="height:100%;">
+            <ion-slide ng-repeat="item in set.words">
+                <ion-content style="height:70vh" overflow-scroll="false" has-bouncing="false" delegate-handle="content" scroll="true">
+                    <div class="list padding">
+                        <div id="flip{{$index}}" class="flip-container" ng-click="flip(); resize();">
+                            <div class="flipper clearfix">
+                                <div class="front card item-text-wrapped" style="position:absolute;">
+                                    <div class="top positive-bg"></div><div class="icon-holder">A</div>
+                                    <div class="padding">
+                                        <p>{{item[0]}}</p>
+                                    </div>
+                                </div>
+                                <div class="back card item-text-wrapped success" ng-hide="!isFlipped($index)">
+                                    <div class="top light-bg"></div><div class="icon-holder">B</div>
+                                    <div class="answer" ng-repeat="answer in item track by $index" ng-if="$index>0">
+                                        <div class="item-text-wrap">
+                                            <p>{{answer}}</p><hr ng-if="item[$index+1]" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+    <ion-footer-bar align-title="center" class="bar-positive">
+        <div class="buttons">
+            <button class="button" ng-click="goToFirstOne()">Pierwszy</button>
+        </div>
+        <h1 class="title">{{current}}/{{max}}</h1>
+        <div class="buttons">
+            <button class="button" ng-click="goToLastOne()">Ostatni</button>
+        </div>
+    </ion-footer-bar>
+</ion-view>

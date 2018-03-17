@@ -1,0 +1,23 @@
+﻿<ion-view view-title="Szukaj Online">
+    <ion-nav-buttons side="right">
+    <button class="button outline" ng-click="subscribe()"><span class="ion-android-star"> Dodaj</span></button>
+    </ion-nav-buttons>
+    <ion-header-bar class="bar bar-subheader light positive-bg padding center">
+        <b>{{set.title}} ({{set.words.length}} elementów)</b>
+        </ion-header-bar>
+        <ion-content overflow-scroll="false" has-bouncing="false" class="has-subheader">
+            <div class="card" ng-repeat="element in set.words">
+                <div class="item item-text-wrap">
+                    <h2>{{$index+1}}. {{element[0]}}</h2>
+                </div>
+                <div class="item item-divider positive-bg" ng-repeat="answer in element track by $index" ng-if="$index>0">
+                    <div class="item-note item-text-wrap light">
+                        <span>
+                            {{element[$index]}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-top:3%"></div>
+        </ion-content>
+</ion-view>

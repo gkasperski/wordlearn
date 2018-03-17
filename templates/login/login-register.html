@@ -1,0 +1,41 @@
+﻿
+<ion-view view-title="Sign Up" class="loginBg" hide-nav-bar="true">
+    <ion-content class="padding" overflow-scroll="false" has-bouncing="false">
+        <div class="row padding responsive-sm">
+            <div class="col">
+                <div class="app-logo"><img src="img/wlogos.png"></div>
+                <div class="list">
+                    <form novalidate name="form.registerForm">
+                        <label class="item item-input" ng-class="form.registerForm.nickname.$invalid && form.registerForm.nickname.$dirty ? 'item-assertive' : ''">
+                            <input name="nickname" ng-model="newUser.nickname" type="text" placeholder="Nazwa użytkownika (3-20 znaków)" ng-minlength="3" ng-maxlength="20" required>
+                            <span class="padding-right ion-alert" ng-if="form.registerForm.nickname.$invalid && form.registerForm.nickname.$dirty"></span>
+                        </label>
+                        <label class="item item-input" ng-class="form.registerForm.email.$invalid && form.registerForm.email.$dirty ? 'item-assertive' : ''">
+                            <input name="email" ng-model="newUser.email" type="email" placeholder="Adres e-mail" required>
+                            <span class="padding-right ion-alert" ng-if="form.registerForm.email.$invalid && form.registerForm.email.$dirty"></span>
+                        </label>
+                        <label class="item item-input" ng-class="form.registerForm.password.$invalid && form.registerForm.password.$dirty ? 'item-assertive' : ''">
+                            <input name="password" ng-model="newUser.password" type="password" placeholder="Hasło (minimum 6 znaków)" ng-minlength="6" required>
+                            <span class="padding-right ion-alert" ng-if="form.registerForm.password.$invalid && form.registerForm.password.$dirty"></span>
+                        </label>
+                        <label class="item item-input" ng-class="form.registerForm.repassword.$invalid && form.registerForm.repassword.$dirty ? 'item-assertive' : ''">
+                            <input name="repassword" ng-model="newUser.repassword" type="password" placeholder="Powtórz hasło" pattern="{{newUser.password}}" required>
+                            <span class="padding-right ion-alert" ng-if="form.registerForm.repassword.$invalid && form.registerForm.repassword.$dirty"></span>
+                        </label>
+                        <br />
+                        <ion-item>
+                            <ion-label>Wybierz avatar:</ion-label>
+                            <ion-radio class="avatar-choose" ng-model="newUser.avatar" value="1" required>
+                                <img class="center" src="img/1.png">
+                            </ion-radio>
+                            <ion-radio class="avatar-choose" ng-model="newUser.avatar" value="2" required>
+                                <img class="center" src="img/2.png">
+                            </ion-radio>
+                        </ion-item>
+                        <button ng-click="register(newUser);" class="button ion-person-add button-block button-balanced" ng-disabled="form.registerForm.$invalid"> Zarejestruj się</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

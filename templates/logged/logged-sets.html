@@ -1,0 +1,43 @@
+﻿
+<ion-view view-title="Zestawy">
+
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-refresh" ng-click="refreshSets()"></button>
+        <button class="button button-icon icon ion-plus-round" ui-sref="logged.newset"></button>
+    </ion-nav-buttons>
+    <ion-content overflow-scroll="false" has-bouncing="false">
+        <ion-list>
+            <div class="item item-divider">
+                Utworzone przez Ciebie
+            </div>
+            <ion-item ng-repeat="item in sets.mine" ng-click="loadSet(item.id, item.title)" on-hold="mySetsOptions({{item}});">
+                     <h2><u>{{item.title}}</u></h2>
+                <p>Ostatnio zaaktualizowane: {{item.last_updated}}</p>
+                <span class="item-note">
+                    Elementów: <b>{{item.quantity}}</b>
+                </span>
+            </ion-item>
+            <div class="card" ng-if="sets.mine.length == 0">
+                <div class="item item-text-wrap">
+                    <h2>Brak utworzonych zestawów.</h2>
+                </div>
+            </div>
+            <div class="item item-divider">
+                Utworzone przez innych
+            </div>
+            <ion-item ng-repeat="item in sets.foreign" ng-click="loadSet(item.id, item.title)" on-hold="otherSetsOptions({{item}});"> 
+                    <h2>{{item.title}}</h2>
+                <p>Autor: {{item.nickname}}</p>
+                <span class="item-note">
+                    Elementów: <b>{{item.quantity}}</b>
+                </span>
+            </ion-item>
+            <div class="card" ng-if="sets.foreign.length == 0">
+                <div class="item item-text-wrap">
+                    <h2>Brak podpiętych zestawów.</h2>
+                </div>
+            </div>
+            
+        </ion-list>
+    </ion-content>
+</ion-view>

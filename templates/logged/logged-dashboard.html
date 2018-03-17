@@ -1,0 +1,66 @@
+﻿<ion-view view-title="Menu główne" hide-nav-bar="true">
+        <ion-content overflow-scroll="false" has-bouncing="false" scroll="true">
+            <div class="container gray-bg">
+                <div class="positive-bg shadow-bg">
+                    <button menu-toggle="left" class="button button-icon icon ion-navicon" style="color: white;"></button>
+                    <div class="atom-profile">
+                        <div class="atom-avatar">
+                            <img class="atom-center shadow atom-avatar-image" ng-src="{{userData.avatar}}" style="margin-bottom: 8px;">
+                        </div>
+                    </div>
+
+                    <ion-slide-box on-slide-changed="slideHasChanged($index)" style="padding-bottom:8px">
+                        <ion-slide>
+                            <div class="box blue text-center">
+                                <h3 class="slide-title">{{userData.name}}</h3>
+                                <ul>
+                                    <li><small>{{userData.email}}</small></li>
+                                </ul>
+                            </div>
+                        </ion-slide>
+                        <ion-slide>
+                            <div class="box blue text-center">
+                                <h3 class="slide-title">Ostatnie logowanie:</h3>
+                                <ul>
+                                    <li>{{userData.lastLogin}}</li>
+                                </ul>
+                            </div>
+                        </ion-slide>
+                        <ion-slide>
+                            <div class="box blue text-center">
+                                <h3 class="slide-title">Zarejestrowany od:</h3>
+                                <ul>
+                                    <li>{{userData.registeredSince}}</li>
+                                </ul>
+                            </div>
+                        </ion-slide>
+                    </ion-slide-box>
+                </div>
+                <!-- menu-->
+                <div class="dashboard-bottom">
+                    <div class="row">
+                        <div class="col card" ui-sref="logged.sets">
+                            <div class="item center dashboard-icon" ng-click="">
+                                <div class="positive"><i class="ion-ios-albums"></i></div>
+                                <div>Zestawy</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col card" ui-sref="logged.online">
+                            <div class="item center dashboard-icon" ng-click="">
+                                <div class="positive"><i class="ion-ios-world"></i></div>
+                                <div>Szukaj online</div>
+                            </div>
+                        </div>
+                        <div class="col card" ui-sref="logged.about">
+                            <div class="item center dashboard-icon" ng-click="">
+                                <div class="positive"><i class="ion-help-circled"></i></div>
+                                <div>O autorze</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</ion-content>
+</ion-view>

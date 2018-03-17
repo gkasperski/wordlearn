@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- BIBLIOTEKI I STYLE-->
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/flip.css" rel="stylesheet">
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+    
+
+
+    <!-- MOJE JAVASCRIPT -->
+    <!-- app -->
+    <script src="js/App/app.js"></script>
+
+    <!-- kontrolery -->
+    <script src="js/Controllers/titleControllers.js"></script>
+    <script src="js/Controllers/loggedControllers.js"></script>
+    <script src="js/Controllers/onlineControllers.js"></script>
+    <script src="js/Controllers/setsControllers.js"></script>
+    <script src="js/Controllers/learningControllers.js"></script>
+
+    <!-- uslugi -->
+    <script src="js/Services/auth.js"></script>
+    <script src="js/Services/rest.js"></script>
+    <script src="js/Services/shared.js"></script>
+    <script src="js/Services/userData.js"></script>
+   
+
+
+
+</head>
+<body ng-app="starter">
+    <ion-nav-bar class="bar-positive" align-title="center">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view></ion-nav-view>
+</body>
+</html>

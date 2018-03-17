@@ -1,0 +1,34 @@
+﻿<ion-view view-title="Szukaj Online">
+    <ion-header-bar class="bar bar-subheader light positive-bg center" style="padding: 0">
+        <div class="item item-input-inset positive-bg item-borderless">
+            <div class="item-input-wrapper item-select">
+                <form>
+                    <input ng-model="search.phrase" type="search" placeholder="Szukaj...">
+                    <input type="submit" ng-click="searchSets()" style="position: absolute; left: -9999px; width: 1px; height: 1px;" />
+                    <select ng-model="search.mode">
+                        <option value="0">Tytuł</option>
+                        <option value="1">Autor</option>
+                    </select>
+                </form>
+            </div>
+            <span class="button" ng-click="searchSets()">
+                <i class="icon ion-search placeholder-icon"></i>
+            </span>
+        </div>
+    </ion-header-bar>
+    <ion-content overflow-scroll="false" has-bouncing="false" class="has-header" style="margin-top:1.2vh">
+        <div class="item item-divider padding">
+            <i ng-if="result.done">Wyszukane zestawy: {{result.quantity}}</i>
+            <i ng-if="!result.done">Wpisz frazę i wyszukaj.</i>
+        </div>
+        <ion-list>
+            <ion-item ng-repeat="item in result.sets" href="#/logged/online/{{item.id}}/{{item.title}}">
+                <h2>{{item.title}}</h2>
+                <p>Autor: {{item.nickname}}</p>
+                <span class="item-note">
+                    Elementów: <b>{{item.quantity}}</b>
+                </span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,41 @@
+﻿<ion-view>
+    <ion-nav-title>
+        <span class="ion-android-stopwatch light"> ABCD ({{set.title}})</span>
+    </ion-nav-title>
+    <ion-header-bar class="bar bar-subheader light positive-bg center" style="padding: 0">
+        <p class="padding"><b ng-show="started">Wynik: {{score}} pkt</b><i ng-if="bestScore>0"> (Best: {{bestScore}} pkt)</i></p>
+    </ion-header-bar>
+    <ion-content overflow-scroll="false" has-bouncing="false" class="padding loginBg">
+        <div ng-show="started" style="height:100%; width:100%">
+            <div class="bubble">
+                <div class="bubble-text">
+                    <p>
+                        <b>
+                            {{round.question}}
+                        </b>
+                    </p>
+                </div>
+            </div>
+            <div style="padding-left: 10%; padding-right:10%;">
+                <button class="button button-block button-balanced" ng-click="submitAnswer(round.answer[0])">
+                    {{round.answer[0]}}
+                </button>
+                <button class="button button-block button-royal" ng-click="submitAnswer(round.answer[1])">
+                    {{round.answer[1]}}
+                </button>
+                <button class="button button-block button-assertive" ng-click="submitAnswer(round.answer[2])">
+                    {{round.answer[2]}}
+                </button>
+                <button class="button button-block button-dark" ng-click="submitAnswer(round.answer[3])">
+                    {{round.answer[3]}}
+                </button>
+                <button class="button button-block button-stable" ng-click="submitAnswer(round.answer[4])">
+                    {{round.answer[4]}}
+                </button>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar align-title="center" class="bar-positive">
+        <h1 class="title monospace">Pozostało czasu: <b>{{timeLeftRounded}} s</b>
+    </ion-footer-bar>
+</ion-view>

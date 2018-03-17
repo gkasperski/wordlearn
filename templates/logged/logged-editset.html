@@ -1,0 +1,58 @@
+﻿
+<ion-view view-title="Edytowanie zestawu">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon ion-android-remove-circle" ng-click="nav.showDelete = !nav.showDelete"></button>
+    </ion-nav-buttons>
+    <ion-content overflow-scroll="false" has-bouncing="false">
+        <div>
+            <label class="item item-input">
+                <i class="icon ion-android-list placeholder-icon"></i>
+                <input ng-keyup="saveEditSet()" type="text" placeholder="Tytuł zestawu" ng-model="editSetsElements.title">
+            </label>
+        </div>
+        <ion-item ng-if="nav.showDelete">
+            <button class="button button-block button-assertive" ng-click="deleteAllElementsE(editSetsElements.title)">
+                Usuń wszystkie elementy
+            </button>
+            <button class="button button-block button-energized" ng-click="forgotEditing()">
+                <span class="ion-ios-trash"> Porzuć zmiany</span>
+            </button>
+        </ion-item>
+        <div class="item item-divider">Elementy zestawu</div>
+        <ion-list>
+            <ion-item class="no-padding" ng-repeat="(fIndex, element) in editSetsElements.words track by $index">
+                <div class="row row-top">
+                    <div class="col col-10 center" ng-if="nav.showDelete">
+                        <button ng-click="removeElementE(fIndex)" class="button button-icon ion-android-remove-circle assertive larger"></button>
+                    </div>
+                    <div class="col">
+                        <!-- ELEMENT -->
+                        <div class="item item-input">
+                            <input ng-keyup="saveEditSet()" type="text" placeholder="Element" ng-model="element[0]">
+                            <button ng-click="appendAlternativeE($index)" class="button button-small button-icon ion-plus-round"></button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- ODPOWIEDŹ -->
+                        <div class="item item-input">
+                            <input ng-keyup="saveEditSet()" type="text" placeholder="Odpowiedź" ng-model="element[1]">
+                        </div>
+                        <!-- ODPOWIEDŹ  ALTERNATYWNA -->
+                        <div ng-repeat="answer in element track by $index" ng-if="$index>1">
+                            <br /><div class="item item-input">
+                                <input id="item{{fIndex}}-{{$index+1}}" ng-keyup="saveEditSet()" type="text" placeholder="Odpowiedź" ng-model="element[$index]">
+                                <button ng-click="removeAlternativeE(fIndex, $index)" class="button button-small button-icon ion-minus-round" ng-if="$index>1"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <button class="button button-block button-positive" ng-click="addNewElementE()">
+            Dodaj nowy element
+        </button>
+        <button class="button button-block button-balanced" ng-click="finishEditing()">
+            Zatwierdź edycję
+        </button>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,15 @@
+﻿
+<ion-side-menus>
+    <ion-side-menu side="left" width="200">
+        <ion-content overflow-scroll="false" scroll="true" has-bouncing="false" class="stable-bg">
+            <div class="atom-avatar">
+                <img class="atom-center positive" ng-src="img/wlogob.png" style="margin-bottom: 8px;">
+            </div>
+            <a ng-click="changePassword()" class="item"><span class="ion-locked positive"></span> Zmień hasło</a>
+            <a ng-click="changeAvatar()" class="item"><span class="ion-happy-outline positive"></span> Zmień awatar</a>
+            <a ng-click="logout()" class="item"><span class="ion-log-out assertive"></span> Wyloguj się</a>
+        </ion-content>
+    </ion-side-menu>
+    <ion-side-menu-content drag-content="false">
+        <ion-nav-view name="logged-dashboard"></ion-nav-view>
+

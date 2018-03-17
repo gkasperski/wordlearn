@@ -1,0 +1,27 @@
+﻿<ion-view view-title="{{set.title}}">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-refresh" ng-click="refreshSet()"></button>
+    </ion-nav-buttons>
+    <ion-subheader-bar class="bar bar-subheader light positive-bg center">
+        <div class="buttons">
+            <button class="button button-light button-outline" ui-sref="logged.set-flashcards"><span class="ion-ios-browsers light"> Fiszki</span></button>
+            <button class="button button-light button-outline" ui-sref="logged.set-pairs"><span class="ion-grid light"> Pary</span></button>
+            <button class="button button-light button-outline" ui-sref="logged.set-abcd"><span class="ion-android-stopwatch light"> ABCD</span></button>
+        </div>
+    </ion-subheader-bar>
+    <ion-content overflow-scroll="false" has-bouncing="false" class="has-subheader">
+        <div class="card" ng-repeat="element in set.words">
+            <div class="item item-text-wrap">
+                <h2>{{$index+1}}. {{element[0]}}</h2>
+            </div>
+            <div class="item item-divider positive-bg" ng-repeat="answer in element track by $index" ng-if="$index>0">
+                <div class="item-note item-text-wrap light" style="max-width:100%;">
+                    <span>
+                        {{element[$index]}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div style="padding-top:3%"></div>
+    </ion-content>
+</ion-view>
