@@ -2,7 +2,7 @@
 Ionic 1 (AngularJS) hybrid app for vocabulary learning. </br>
 That app was my first touch with Vanilla JS, AngularJS and Ionic, so now I can see the code is really bad, but I am posting it anyway :)
 
-I also made it to work offline. At least after logging in and adding the sets.
+I also made it to work offline. At least after logging in and adding new sets.
 Now the WS is down so it ain't working anymore.
 
 Some screenshots:
