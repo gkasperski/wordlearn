@@ -1,4 +1,4 @@
-# wordlearn
+# wordlearn - 2017 March
 Ionic 1 (AngularJS) hybrid app for vocabulary learning.
 
 That app was my first touch with AngularJS and Ionic.
